@@ -1,0 +1,212 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h3 class="text-center">Student Add Form</h3>
+      <h6 class="fst-italic mt-3">
+        Fill the bellow form and submit it to add student details!
+      </h6>
+      <hr />
+
+      <form [formGroup]="formDetails">
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <span
+            *ngIf="
+              submitted ||
+              form['username'].touched ||
+              (form['username'].dirty && form['username'].invalid)
+            "
+            class="info-msg text-danger px-2"
+          >
+            <small
+              *ngIf="form['username'].errors && form['username'].errors?.['required']"
+              >* This is the required field.</small
+            >
+            <small
+              *ngIf="form['username'].errors && form['username'].errors?.['minlength']"
+              >* Should have at least 4 characters.</small
+            >
+          </span>
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            aria-describedby="name"
+            placeholder="Enter name"
+            formControlName="username"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <span
+            *ngIf="
+              submitted ||
+              form['email'].touched ||
+              (form['email'].dirty && form['email'].invalid)
+            "
+            class="info-msg text-danger px-2"
+          >
+            <small
+              *ngIf="form['email'].errors && form['email'].errors?.['required']"
+              >* This is the required field.</small
+            >
+            <small
+              *ngIf="form['email'].errors && form['email'].errors?.['minlength']"
+              >* Should have at least 4 characters.</small
+            >
+          </span>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            placeholder="Enter email"
+            formControlName="email"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="dateOfBirth" class="form-label">Date of birth</label>
+          <span
+            *ngIf="
+              submitted ||
+              form['dateOfBirth'].touched ||
+              (form['dateOfBirth'].dirty && form['dateOfBirth'].invalid)
+            "
+            class="info-msg text-danger px-2"
+          >
+            <small
+              *ngIf="form['dateOfBirth'].errors && form['dateOfBirth'].errors?.['required']"
+              >* This is the required field.</small
+            >
+            <small
+              *ngIf="form['dateOfBirth'].errors && form['dateOfBirth'].errors?.['minlength']"
+              >* Should have at least 4 characters.</small
+            >
+          </span>
+          <input
+            type="datetime"
+            class="form-control"
+            id="dateOfBirth"
+            placeholder="Enter your date of birth"
+            formControlName="dateOfBirth"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="contact" class="form-label">Contact</label>
+          <span
+            *ngIf="
+              submitted ||
+              form['contact'].touched ||
+              (form['contact'].dirty && form['contact'].invalid)
+            "
+            class="info-msg text-danger px-2"
+          >
+            <small
+              *ngIf="form['contact'].errors && form['contact'].errors?.['required']"
+              >* This is the required field.</small
+            >
+            <small
+              *ngIf="form['contact'].errors && form['contact'].errors?.['minlength']"
+              >* Phone number must have 10 digits</small
+            >
+          </span>
+          <input
+            type="number"
+            class="form-control"
+            id="contact"
+            placeholder="Enter your phone number"
+            formControlName="contact"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="address" class="form-label">Addrress</label>
+          <span
+            *ngIf="
+              submitted ||
+              form['address'].touched ||
+              (form['address'].dirty && form['address'].invalid)
+            "
+            class="info-msg text-danger px-2"
+          >
+            <small
+              *ngIf="form['address'].errors && form['address'].errors?.['required']"
+              >* This is the required field.</small
+            >
+            <small
+              *ngIf="form['address'].errors && form['address'].errors?.['minlength']"
+              >* Address must have 6 length</small
+            >
+          </span>
+          <input
+            type="text"
+            class="form-control"
+            id="address"
+            placeholder="Enter address"
+            formControlName="address"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="image" class="form-label">Image</label>
+          <span
+            *ngIf="
+              submitted ||
+              form['image'].touched ||
+              (form['image'].dirty && form['image'].invalid)
+            "
+            class="info-msg text-danger px-2"
+          >
+            <small
+              *ngIf="form['image'].errors && form['image'].errors?.['image']"
+              >* This is the required field.</small
+            >
+            <small
+              *ngIf="form['image'].errors && form['image'].errors?.['minlength']"
+              >* Phone number must have 10 digits</small
+            >
+          </span>
+          <input
+            type="file"
+            class="form-control"
+            id="image"
+            placeholder="Enter image"
+            formControlName="image"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="file" class="form-label">File</label>
+          <span
+            *ngIf="
+              submitted ||
+              form['file'].touched ||
+              (form['file'].dirty && form['file'].invalid)
+            "
+            class="info-msg text-danger px-2"
+          >
+            <small
+              *ngIf="form['file'].errors && form['image'].errors?.['image']"
+              >* This is the required field.</small
+            >
+            <small
+              *ngIf="form['file'].errors && form['file'].errors?.['minlength']"
+              >* Phone number must have 10 digits</small
+            >
+          </span>
+          <input
+            type="file"
+            class="form-control"
+            id="file"
+            placeholder="Enter file"
+            formControlName="file"
+          />
+        </div>
+        <button type="button" class="btn btn-success">Submit</button>
+        <!-- <button
+          type="button"
+          (click)="onSubmit(formDetails.value)"
+          class="btn btn-primary"
+        >
+          Submit
+        </button> -->
+      </form>
+    </div>
+  </div>
+</div>
