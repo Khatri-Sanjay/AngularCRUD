@@ -8,7 +8,7 @@
         class="btn btn-info float-end"
         [routerLink]="'/add-student'"
       >
-        + Add Student Details
+        <i class="fa fa-plus"></i> Add Student Details
       </button>
       <hr class="mt-4" />
       <br />
@@ -26,36 +26,33 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>Mark</td>
-            <td>Otto</td>
+          <tr *ngFor="let student of students; let i = index">
+            <th scope="row">{{ i + 1 }}</th>
+            <td>{{ student.name }}</td>
+            <td>{{ student.email }}</td>
+            <td>{{ student.dateOfBirth }}</td>
+            <td>{{ student.contact }}</td>
+            <td>{{ student.address }}</td>
             <td>
-              <button class="btn btn-outline-info btn-sm me-2">
+              <button
+                class="btn btn-outline-info btn-sm me-2"
+                (click)="onViewClick(student.id)"
+              >
                 <i class="fa fa-eye"></i>
               </button>
-              <button class="btn btn-outline-success btn-sm me-2">
+              <button
+                class="btn btn-outline-success btn-sm me-2"
+                (click)="onEditClick(student.id)"
+              >
                 <i class="fa fa-pencil"></i>
               </button>
-              <button class="btn btn-outline-danger btn-sm me-2">
+              <button
+                class="btn btn-outline-danger btn-sm me-2"
+                (click)="onDelete(student.id)"
+              >
                 <i class="fa fa-trash"></i>
               </button>
             </td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
           </tr>
         </tbody>
       </table>

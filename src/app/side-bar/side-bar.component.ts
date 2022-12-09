@@ -30,6 +30,7 @@ export class SideBarComponent implements OnInit {
       number: '4',
       name: 'View Student',
       icon: 'fa fa-eye',
+      url: '/view-student'
     }
   ]
 
