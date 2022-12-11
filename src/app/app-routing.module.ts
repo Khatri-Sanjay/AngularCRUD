@@ -10,6 +10,9 @@ import { ViewStudentComponent } from './student/view-student/view-student.compon
 
 const routes: Routes = [
   {
+    path: '', redirectTo: 'dashboard', pathMatch: 'full'
+  },
+  {
     path: 'header', component: HeaderComponent
   },
   {
