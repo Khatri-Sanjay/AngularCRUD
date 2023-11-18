@@ -1,0 +1,8 @@
+<button
+  [ngClass]="btnClass"
+  (click)="emitEvent()"
+  [routerLink]="route"
+>
+  <i *ngIf="iconName" [class]="iconName"></i>
+  {{ btnText }}
+</button>
