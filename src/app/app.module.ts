@@ -13,6 +13,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ButtonComponent } from './button/button.component';
+import { ShowMoreLessComponent } from './show-more-less/show-more-less.component';
+import { CommonTableComponent } from './common-table/common-table.component';
 
 
 @NgModule({
@@ -24,7 +27,10 @@ import { HttpClientModule } from '@angular/common/http';
     AddStudentComponent,
     EditStudentComponent,
     StudentListComponent,
-    DashboardComponent
+    DashboardComponent,
+    ButtonComponent,
+    ShowMoreLessComponent,
+    CommonTableComponent
   ],
   imports: [
     BrowserModule,

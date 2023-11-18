@@ -49,6 +49,7 @@ export class AddStudentComponent implements OnInit {
     this.student.contact = formDetails.contact;
     this.student.dateOfBirth = formDetails.dateOfBirth;
     this.student.address = formDetails.address;
+    this.student.details = formDetails.details;
 
     if(this.formDetails.valid){
       this.addStudent(this.student)
@@ -65,7 +66,7 @@ export class AddStudentComponent implements OnInit {
     this.studentService.onAddStudent(student).subscribe(
       (response:any)=>{
         this.isSubmitting=true;
-      
+
         // this.router.navigate(['auth/login'])
         console.log("Data insert success");
       },
@@ -82,7 +83,8 @@ export class AddStudentComponent implements OnInit {
       email: [undefined, Validators.compose([Validators.required,Validators.minLength(4)])],
       dateOfBirth : [undefined, Validators.compose([Validators.required,Validators.minLength(4)])],
       contact: [undefined, Validators.compose([Validators.required,Validators.pattern("^[0-9]*$"),Validators.minLength(10)])],
-      address : [undefined, Validators.compose([Validators.required,Validators.minLength(4)])]
+      address : [undefined, Validators.compose([Validators.required,Validators.minLength(4)])],
+      details : [undefined, Validators.compose([Validators.required,Validators.minLength(4)])]
     });
   }
 

@@ -144,6 +144,33 @@
             formControlName="address"
           />
         </div>
+        <div class="mb-3">
+          <label for="address" class="form-label">Details</label>
+          <span
+            *ngIf="
+              submitted ||
+              form['details'].touched ||
+              (form['details'].dirty && form['details'].invalid)
+            "
+            class="info-msg text-danger px-2"
+          >
+            <small
+              *ngIf="form['details'].errors && form['details'].errors?.['required']"
+            >* This is the required field.</small
+            >
+            <small
+              *ngIf="form['details'].errors && form['details'].errors?.['minlength']"
+            >* details must have 6 length</small
+            >
+          </span>
+          <textarea
+            type="text"
+            class="form-control"
+            id="details"
+            placeholder="Enter details"
+            formControlName="details"
+          ></textarea>
+        </div>
         <!-- <div class="mb-3">
             <label for="image" class="form-label">Image</label>
             <span

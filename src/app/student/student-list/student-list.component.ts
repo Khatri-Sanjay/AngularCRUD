@@ -10,7 +10,17 @@ import { StudentService } from 'src/app/service/student.service';
 })
 export class StudentListComponent implements OnInit {
 
-  students:Student[]=[]
+  students:Student[]=[];
+  head: Array<any> = new Array<any>(
+    {'Head': 'Name', 'FieldName' : 'name'},
+    {'Head': 'Email', 'FieldName' : 'email'},
+    {'Head': 'DOB', 'FieldName' : 'dateOfBirth'},
+    {'Head': 'Contact', 'FieldName' : 'contact'},
+    {'Head': 'Address', 'FieldName' : 'address'},
+    {'Head': 'Details', 'FieldName' : 'details'}
+  );
+
+  fileName = 'ExcelSheet.xlsx'
 
   constructor(
     private service: StudentService,
@@ -48,6 +58,11 @@ export class StudentListComponent implements OnInit {
 
   onViewClick(id: any){
     this.router.navigate(['/view-student', id]);
+  }
+
+  exportExcell(): void{
+    // let element = document.getElementById('excel_table');
+    // const ws: XLSX.
   }
 
 }

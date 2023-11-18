@@ -40,7 +40,8 @@ export class EditStudentComponent implements OnInit {
       email: [undefined, Validators.compose([Validators.required,Validators.minLength(4)])],
       dateOfBirth : [undefined, Validators.compose([Validators.required,Validators.minLength(4)])],
       contact: [undefined, Validators.compose([Validators.required,Validators.pattern("^[0-9]*$"),Validators.minLength(10)])],
-      address : [undefined, Validators.compose([Validators.required,Validators.minLength(4)])]
+      address : [undefined, Validators.compose([Validators.required,Validators.minLength(4)])],
+      details : [undefined, Validators.compose([Validators.required,Validators.minLength(4)])],
     });
   }
 

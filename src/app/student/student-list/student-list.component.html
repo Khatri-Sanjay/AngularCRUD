@@ -3,59 +3,113 @@
     <div class="col-12">
       <h3 class="text-center">Student Details</h3>
       <span class="fst-italic">You can see all student details below!</span>
+
       <button
         type="button"
-        class="btn btn-info float-end"
+        class="btn btn-success float-end"
+        (click)="exportExcell()"
+      >
+        <i class="fa fa-download me-2"></i>Excell
+      </button>
+
+<!--      <button-->
+<!--        type="button"-->
+<!--        class="btn btn-info float-end me-2"-->
+<!--        [routerLink]="'/add-student'"-->
+<!--      >-->
+<!--        <i class="fa fa-plus"></i> Add Student Details-->
+<!--      </button>-->
+
+      <app-button
+        [btnText]="'Add'"
+        [btnClass]="'btn btn-success float-end me-2'"
         [routerLink]="'/add-student'"
       >
-        <i class="fa fa-plus"></i> Add Student Details
-      </button>
+      </app-button>
+
       <hr class="mt-4" />
       <br />
 
-      <table class="table table-striped table-hover table-responsive">
-        <thead>
-          <tr>
-            <th scope="col">S.N</th>
-            <th scope="col">Name</th>
-            <th scope="col">Email</th>
-            <th scope="col">DOB</th>
-            <th scope="col">Contact</th>
-            <th scope="col">Address</th>
-            <th scope="col">Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let student of students; let i = index">
-            <th scope="row">{{ i + 1 }}</th>
-            <td>{{ student.name }}</td>
-            <td>{{ student.email }}</td>
-            <td>{{ student.dateOfBirth }}</td>
-            <td>{{ student.contact }}</td>
-            <td>{{ student.address }}</td>
-            <td>
-              <button
-                class="btn btn-outline-info btn-sm me-2"
-                (click)="onViewClick(student.id)"
-              >
-                <i class="fa fa-eye"></i>
-              </button>
-              <button
-                class="btn btn-outline-success btn-sm me-2"
-                (click)="onEditClick(student.id)"
-              >
-                <i class="fa fa-pencil"></i>
-              </button>
-              <button
-                class="btn btn-outline-danger btn-sm me-2"
-                (click)="onDelete(student.id)"
-              >
-                <i class="fa fa-trash"></i>
-              </button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+<!--      <table class="table table-striped table-hover table-responsive">-->
+<!--        <thead>-->
+<!--          <tr>-->
+<!--            <th scope="col">S.N</th>-->
+<!--            <th scope="col">Name</th>-->
+<!--            <th scope="col">Email</th>-->
+<!--            <th scope="col">DOB</th>-->
+<!--            <th scope="col">Contact</th>-->
+<!--            <th scope="col">Address</th>-->
+<!--            <th scope="col" style="width: 15%">Details</th>-->
+<!--            <th scope="col">Action</th>-->
+<!--          </tr>-->
+<!--        </thead>-->
+<!--        <tbody>-->
+<!--          <tr *ngFor="let student of students; let i = index">-->
+<!--            <th scope="row">{{ i + 1 }}</th>-->
+<!--            <td>{{ student.name }}</td>-->
+<!--            <td>{{ student.email }}</td>-->
+<!--            <td>{{ student.dateOfBirth }}</td>-->
+<!--            <td>{{ student.contact }}</td>-->
+<!--            <td>{{ student.address }}</td>-->
+<!--&lt;!&ndash;            <td>{{ student.details }}</td>&ndash;&gt;-->
+<!--            <td style="width: 15%">-->
+<!--              <app-show-more-less-->
+<!--                [text]="student?.details"-->
+<!--                [wordLimit]="8"-->
+<!--              >-->
+<!--              </app-show-more-less>-->
+<!--            </td>-->
+<!--            <td>-->
+<!--              &lt;!&ndash;<button-->
+<!--                class="btn btn-outline-info btn-sm me-2"-->
+<!--                (click)="onViewClick(student.id)"-->
+<!--              >-->
+<!--                <i class="fa fa-eye"></i>-->
+<!--              </button>&ndash;&gt;-->
+<!--              <app-button-->
+<!--                [btnText]="'View'"-->
+<!--                [btnClass]="'btn btn-outline-info btn-sm me-2'"-->
+<!--                (onClick)="onViewClick(student.id)"-->
+<!--              >-->
+<!--              </app-button>-->
+<!--              &lt;!&ndash;<button-->
+<!--                class="btn btn-outline-success btn-sm me-2"-->
+<!--                (click)="onEditClick(student.id)"-->
+<!--              >-->
+<!--                <i class="fa fa-pencil"></i>-->
+<!--              </button>&ndash;&gt;-->
+<!--              <app-button-->
+<!--                [btnText]="'Edit'"-->
+<!--                [btnClass]="'btn btn-outline-success btn-sm me-2'"-->
+<!--                (onClick)="onEditClick(student.id)"-->
+<!--              >-->
+<!--              </app-button>-->
+<!--              &lt;!&ndash;<button-->
+<!--                class="btn btn-outline-danger btn-sm me-2"-->
+<!--                (click)="onDelete(student.id)"-->
+<!--              >-->
+<!--                <i class="fa fa-trash"></i>-->
+<!--              </button>&ndash;&gt;-->
+<!--              <app-button-->
+<!--                [btnText]="'Delete'"-->
+<!--                [btnClass]="'btn btn-outline-danger btn-sm me-2'"-->
+<!--                (onClick)="onDelete(student.id)"-->
+<!--              >-->
+<!--                <i icon="fa fa-trash" ></i>-->
+<!--              </app-button>-->
+<!--            </td>-->
+<!--          </tr>-->
+<!--        </tbody>-->
+<!--      </table>-->
+
+      <app-common-table
+        [headerArray]="head"
+        [gridArray]="students"
+        [isAction]="true"
+        (onView)="onViewClick($event)"
+        (onEdit)="onEditClick($event)"
+        (onDelete)="onDelete($event)"
+      ></app-common-table>
     </div>
   </div>
 </div>

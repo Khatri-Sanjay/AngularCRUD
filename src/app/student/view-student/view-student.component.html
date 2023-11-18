@@ -8,7 +8,7 @@
         <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4">
           <ol class="breadcrumb mb-0">
             <li class="breadcrumb-item active" aria-current="page">
-              {{ studentDetails.name }} Profile
+              {{ studentDetails?.name }} Profile
             </li>
           </ol>
         </nav>
@@ -20,17 +20,17 @@
         <div class="card mb-4">
           <div class="card-body text-center">
             <img
-              src="../../../assets/images/242642030_887678925497014_4858976440805316392_n.jpg "
+              src="../../../assets/images/sanjay.jpg "
               alt="avatar"
               class="rounded-circle img-fluid"
               style="width: 150px"
             />
-            <h5 class="my-3">{{ studentDetails.name }}</h5>
+            <h5 class="my-3">{{ studentDetails?.name }}</h5>
             <p class="text-muted mb-1">
-              Yo, It's me {{ studentDetails.name }}
+              Yo, It's me {{ studentDetails?.name }}
               <i class="fa fa-heart" aria-hidden="true"></i>
             </p>
-            <p class="text-muted mb-4">{{ studentDetails.address }}</p>
+            <p class="text-muted mb-4">{{ studentDetails?.address }}</p>
             <div class="d-flex justify-content-center mb-2">
               <button type="button" class="btn btn-primary">Follow</button>
               <button type="button" class="btn btn-outline-primary ms-1">
@@ -84,7 +84,7 @@
                 <p class="mb-0">Full Name</p>
               </div>
               <div class="col-sm-9">
-                <p class="text-muted mb-0">{{ studentDetails.name }}</p>
+                <p class="text-muted mb-0">{{ studentDetails?.name }}</p>
               </div>
             </div>
             <hr />

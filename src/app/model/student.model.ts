@@ -5,6 +5,7 @@ export class Student {
     contact: string | undefined;
     dateOfBirth: string | undefined;
     address: string | undefined;
+    details: string | undefined;
     image: string | undefined;
     file: string | undefined;
 }

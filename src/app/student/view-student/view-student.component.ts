@@ -30,6 +30,9 @@ export class ViewStudentComponent implements OnInit {
     this.studentService.getStudentDetailsByStudentId(userId).subscribe({
       next: (response: any) => {
         this.studentDetails = response;
+        console.log(this.studentDetails)
+
+        console.log("Res:" , response)
       }
     });
   }

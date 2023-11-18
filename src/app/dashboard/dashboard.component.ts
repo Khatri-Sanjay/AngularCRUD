@@ -9,6 +9,8 @@ export class DashboardComponent implements OnInit {
 
   constructor() { }
 
+  salary = 1000;
+
   ngOnInit(): void {
   }
 
