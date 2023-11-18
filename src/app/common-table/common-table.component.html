@@ -1,0 +1,58 @@
+<div class="row">
+  <div class="col-12">
+    <table class="table table-striped table-hover table-responsive">
+      <thead>
+      <tr>
+        <th scope="col" style="width: 5%">S.N</th>
+        <th scope="col" *ngFor="let head of headerArray; let i = index"
+            [ngStyle]="{ 'width': (head?.Head === 'Details') ? '15%' : '10%' }">
+            {{ head?.Head }}
+        </th>
+        <th scope="col" style="width: 10%">Action</th>
+      </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let list of gridArray; let i = index;">
+          <td style="width: 5%">{{i+1}}</td>
+          <td *ngFor="let head of headerArray;"
+              [ngStyle]="{ 'width': (head?.Head === 'Details') ? '15%' : '10%' }"
+          >
+            <span *ngIf="head?.Head === 'Details'">
+              <app-show-more-less
+                [text]="list[head?.FieldName]"
+                [wordLimit]="20"
+              >
+              </app-show-more-less>
+            </span>
+            <span *ngIf="head?.Head !== 'Details'">
+              {{list[head?.FieldName]}}
+            </span>
+          </td>
+          <td *ngIf="isAction" style="width: 10%">
+            <button
+              class="btn btn-outline-info btn-sm me-2"
+              (click)="onViewEvent(list?.id)"
+            >
+              <i class="fa fa-eye"></i>
+            </button>
+
+            <button
+              class="btn btn-outline-success btn-sm me-2"
+              (click)="onEditEvent(list?.id)"
+            >
+              <i class="fa fa-pencil"></i>
+            </button>
+
+            <button
+              class="btn btn-outline-danger btn-sm me-2"
+              (click)="onDeleteEvent(list?.id)"
+            >
+              <i class="fa fa-trash"></i>
+            </button>
+        </td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>
